@@ -1,6 +1,6 @@
 # Enhancing Domain Adaptation
 
-This repository contains code and scripts for the domain adaptation embedding models for retrieval.
+This repository contains code and scripts for the domain adaptation of embedding models for retrieval.
 
 We will continue to refine this codebase. For questions or support, please reach out to [mtamber@uwaterloo.ca](mailto:mtamber@uwaterloo.ca).
 
@@ -8,14 +8,6 @@ We will continue to refine this codebase. For questions or support, please reach
 ---
 
 ## Overview
-
-This repository offers:
-- **Synthetic Query Generation:** Scripts to generate and filter synthetic queries.
-- **Reranking:** Scripts to improve retrieval results through reranking.
-- **Model Training:** Scripts to fine-tune embedding models.
----
-
-## Repository Structure
 
 ### Directories
 
