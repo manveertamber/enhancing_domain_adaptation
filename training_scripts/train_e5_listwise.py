@@ -57,8 +57,12 @@ class EmbeddingModel(nn.Module):
 
     def forward(self, ids, mask):
         outputs = self.bert(ids, mask)
-        pooled_output = outputs[0][:, 0]
+        pooled_output = self.average_pool(outputs.last_hidden_state, mask)
         return torch.nn.functional.normalize(pooled_output, p=2, dim=1)
+
+    def average_pool(self, last_hidden_states: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
+        last_hidden = last_hidden_states.masked_fill(~attention_mask[..., None].bool(), 0.0)
+        return last_hidden.sum(dim=1) / attention_mask.sum(dim=1)[..., None]
 
 @cached
 @torch.amp.autocast('cuda', dtype=torch.bfloat16)
